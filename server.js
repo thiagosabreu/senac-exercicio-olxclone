@@ -4,8 +4,9 @@ import cors from "cors";
 import fileUpload from "express-fileupload";
 import {fileURLToPath} from "url";
 import { dirname } from "path";
-import userRoutes from './routes/userRoutes.js'
-import authRoutes from './routes/authRoutes.js'
+import userRoutes from './src/routes/userRoutes.js'
+import authRoutes from './src/routes/authRoutes.js'
+import adRoutes from './src/routes/adRoutes.js'
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ server.use(express.static(__dirname+'/public'));
 
 server.use('/', userRoutes);
 server.use('/', authRoutes);
+server.use('/', adRoutes);
 
 server.listen(process.env.PORT, () => {
     console.log(`Rodando na porta: ${process.env.BASE}`);
